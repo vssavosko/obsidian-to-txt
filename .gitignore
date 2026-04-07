@@ -1,0 +1,23 @@
+# macOS files
+.DS_Store
+
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environment
+.venv
+
+# Environment variables
+.env
+
+# Project configuration
+.config
+
+# Agents
+.agents
+skills-lock.json

@@ -1,0 +1,62 @@
+[project]
+name = "obsidian-to-txt"
+version = "1.0.0"
+description = "Export your Obsidian vault notes into a single plain-text file."
+readme = "README.md"
+authors = [{ name = "Vladislav Savosko", email = "vssavosko@gmail.com" }]
+keywords = [
+    "obsidian",
+    "vault",
+    "markdown",
+    "text",
+    "notes",
+    "export",
+    "cli",
+    "knowledge-base",
+    "ai",
+    "llm",
+    "python",
+]
+license = "MIT"
+requires-python = ">=3.13"
+dependencies = ["rich>=14.3.3"]
+
+[dependency-groups]
+dev = ["ruff>=0.15.8", "ty>=0.0.27"]
+
+[build-system]
+requires = ["uv_build>=0.9.8,<0.10.0"]
+build-backend = "uv_build"
+
+[project.scripts]
+setup = "obsidian_to_txt.cli.setup:main"
+export = "obsidian_to_txt.cli.export:main"
+reset = "obsidian_to_txt.cli.reset:main"
+
+[tool.ruff]
+line-length = 100
+target-version = "py313"
+exclude = ["**/*_cache", ".venv"]
+format.quote-style = "double"
+format.skip-magic-trailing-comma = false
+format.line-ending = "lf"
+lint.select = [
+    "E",    # pycodestyle errors
+    "F",    # pyflakes
+    "I",    # isort
+    "D",    # pydocstyle
+    "RUF",  # Ruff-specific rules
+    "T201", # flake8-print (ban print)
+    "UP",   # pyupgrade
+]
+lint.ignore = [
+    "UP007", # allow Union/Optional instead of | / None
+    "D417",  # allow missing docstring args/raises
+    "E501",  # allow long lines
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ty.environment]
+python-version = "3.13"
